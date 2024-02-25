@@ -8,7 +8,7 @@ import MessageFactory, { Message, MessageType, QueryType } from '~/src/message_f
 import Node from '~/src/node.ts'
 import RoutingTable from '~/src/routing_table.ts'
 import logger from '~/src/util/log.ts'
-import { NetUtil } from 'https://deno.land/x/toolkit@0.0.4/mod.ts'
+import { NetUtil } from 'toolkit'
 
 export interface MessageHandler {
   /**

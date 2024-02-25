@@ -27,9 +27,12 @@ export default class ErrorResponseHandler implements MessageHandler {
     // finish transcation
     TranscationManager.get().finish(tid)
 
-    const [errorCode, errorMessage] = error
-
-    logger.error(`[${tid}] received error from ${address}:${port}: ${errorCode} ${errorMessage}`)
+    if (error) {
+      const [errorCode, errorMessage] = error
+      logger.error(`[${tid}] received error from ${address}:${port}: ${errorCode} ${errorMessage}`)
+    } else {
+      logger.error(`[${tid}] received error from ${address}:${port}: unknown error`)
+    }
 
     return Promise.resolve()
   }

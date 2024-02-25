@@ -1,4 +1,6 @@
+import { BytesUtil } from 'toolkit'
 import { crypto, toHashString } from 'std/crypto/mod.ts'
+import { encodeHex } from 'std/encoding/hex.ts'
 /**
  * get a sha1 hash, return hex string
  * @param data data to hash
@@ -23,7 +25,7 @@ export function randomSha1(): Uint8Array {
  * @returns hex string e.g. 'a9993e364706816aba3e25717850c26c9cd0d89d'
  */
 export function sha1String(data: Uint8Array): string {
-  return toHashString(sha1(data))
+  return encodeHex(sha1(data))
 }
 
 /**
